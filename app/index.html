@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>REC | ENACTUS</title>
+    <title>REC|ENACTUS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -48,7 +49,7 @@ h2{
 
     <!-- Add your site or application content here -->
    
-    <div class="navbar navbar-warning navbar-fixed-top " style="border-radius:2.5px; background-color:#444; padding-left:10px; padding-top:10px; padding-bottom:10px; box-shadow: 0px 1px 2px rgba(0,0,0,.3);">
+    <div class="navbar navbar-fixed-top " style="border-radius:1px; background-color:#444; padding-left:10px; padding-top:10px; padding-bottom:10px; box-shadow: 0px 1px 2px rgba(0,0,0,.3);">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
             <span class="icon-bar"></span>
@@ -57,13 +58,13 @@ h2{
         </button>
         <a class="navbar-brand" href="javascript:void(0)" style="background-image:url(images/bg3.png); background-size: 100% 100%; width:154px;left:30px;"></a>
     </div>
-    <div class="navbar-collapse collapse navbar-warning-collapse">
+    <div class="navbar-collapse collapse navbar-warning-collapse" ng-controller="HeaderController">
         <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">
-             <li class="active"><a href="#/">HOME</a></li>
-             <li><a href="#/about">ACHEIVEMENTS</a></li>
-             <li><a href="#/team">TEAM</a></li>
-            <li><a href="#/about">ABOUT</a></li>
-            <li class="dropdown">
+             <li ng-class="{ active: isActive('/')}"><a href="#/">HOME</a></li>
+             <li ng-class="{ active: isActive('/about')}"><a href="#/about">ACHEIVEMENTS</a></li>
+             <li ng-class="{ active: isActive('/team')}"><a href="#/team">TEAM</a></li>
+            <li ng-class="{ active: isActive('/about')}"><a href="#/about">ABOUT</a></li>
+            <li class="dropdown" >
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">PROJECT<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="javascript:void(0)">Parisutham</a></li>
@@ -74,11 +75,11 @@ h2{
                     <li><a href="javascript:void(0)">Krishi</a></li>
                 </ul>
             </li>
-            <li><a href="#/about">CONTACT US</a></li>
+            <li ng-class="{ active: isActive('/about')}"><a href="#/about">CONTACT US</a></li>
         </ul>
     </div>
 </div>
-</ul>
+
 
     <div class="container well" style="padding-top:80px;">
       
@@ -106,7 +107,15 @@ h2{
                 el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
             } );
         </script>
-    
+        <script>
+        function HeaderController($scope, $location) 
+{ 
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+}
+        </script>
+       
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -138,6 +147,8 @@ h2{
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-autohidingnavbar/src/jquery.bootstrap-autohidingnavbar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -145,6 +156,11 @@ h2{
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script>
+        $(document).ready(function () {
+    $("div.navbar-fixed-top").autoHidingNavbar({  });
+    });
+        </script>
         <!-- endbuild -->
 </body>
 </html>

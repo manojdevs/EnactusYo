@@ -13,7 +13,8 @@
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
     "bootstrap-material-design": "latest",
-    "jquery": "latest"
+    "jquery": "latest",
+    "bootstrap-autohidingnavbar": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
