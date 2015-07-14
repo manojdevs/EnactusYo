@@ -71,6 +71,10 @@
 	word-spacing: -0.15em;
 	font-weight: 300;
 }
+.pari
+{
+	
+}
 
 .grid figure h2 span {
 	font-weight: 800;
@@ -156,7 +160,25 @@ figure.effect-lily:hover p {
 	transition-duration: 0.35s;
 }
 
+.circle {
+
+	text-align:center;
+	padding-top:30px;
+}
+.pari p {
+	
+	margin-top:10px;
+}
+.hi {
+	margin-left:90px;
+	margin-right:90px;
+}
+
 /*---------------*/
 /***** Sadie *****/
 /*---------------*/
 
+.im {
+	height:100%;
+	width:200px;
+}
